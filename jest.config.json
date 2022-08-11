@@ -1,0 +1,23 @@
+{
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["<rootDir>/jest-setup.js"],
+    "testPathIgnorePatterns": ["/node_modules/", ".history/"],
+    "moduleNameMapper": {
+        "^@root(.*)$": "<rootDir>$1",
+        "^@components(.*)$": "<rootDir>/src/components$1",
+        "^@constants(.*)$": "<rootDir>/src/constants$1",
+        "^@hooks(.*)$": "<rootDir>/src/hooks$1",
+        "^@pages(.*)$": "<rootDir>/src/pages$1",
+        "^@routes(.*)$": "<rootDir>/src/routes$1",
+        "^@schemas(.*)$": "<rootDir>/src/schemas$1",
+        "^@services(.*)$": "<rootDir>/src/services$1",
+        "^@util(.*)$": "<rootDir>/src/util$1",
+        "^@state(.*)$": "<rootDir>/src/state$1",
+        "^@theme(.*)$": "<rootDir>/src/theme$1",
+        "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    },
+    "watchPlugins": [
+        "jest-watch-typeahead/filename",
+        "jest-watch-typeahead/testname"
+    ]
+}
