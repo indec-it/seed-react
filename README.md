@@ -1,7 +1,5 @@
 # Seed React BackOffice 🚀
 
-https://indec-it.github.io/react-seed/
-
 ## Glossary
 
 1. [Set up](#setup)
@@ -29,7 +27,7 @@ $ npm install
 To run the project execute the following command:
 
 ```sh
-$ npm start
+$ npm run dev
 ```
 
 It will open a page in your default browser at [http://localhost:6000](http://localhost:6000).
@@ -82,7 +80,7 @@ Http requests.
 
 `src/state`
 
-You'll find three files: `[stateName]Slice.js`, `sagas.js` and `index.js`.
+You'll find four files: `[stateName]Slice.js`, `sagas.js`, `selectors.js` and `index.js`.
 
 For this project we use [Redux Toolkit](https://redux-toolkit.js.org/) instead of redux, it is easier to configure and reduces too much boilerplate code.
 
@@ -107,7 +105,9 @@ export const {increment, decrement} = counterSlice.actions;
 export default counterSlice.reducer;
 ```
 
-Internally `createSlice` uses `createReducer`, so you may also use [Immer](https://immerjs.github.io/immer/) to write "mutating" immutable updates. For this reason is not necessary to spread state and merge the new value. Like this:
+Then you should import the actions `increment` and `decrement` from our `counterSlice` in your component and use it throw `dispatch`. To dispatch an action you can use `useDispatch` hook from `react-redux` or you can use the `connect` function also from `react-redux`. I prefer to use `connect` because is easier to test the component and it's clearer.
+
+Internally `createSlice` uses `createReducer`, so you may use [Immer](https://immerjs.github.io/immer/) to write "mutating" logic and it doesn't actually mutate the state. For this reason is not necessary to spread state and merge the new value. Like this:
 
 ```js
 export const counterSlice = createSlice({
@@ -203,34 +203,20 @@ $ npm run test:watch # Run in watch mode
 When writing tests, make sure to use the following format to keep the tests clean and consistent:
 
 ```jsx
-import {getByText} from "@testing-library/react";
+import {render} from "@testing-library/react";
 
 import Button from "./Button";
 
 describe("<Button>", () => {
-  let props;
-  const getComponent = () => render(Button, props);
-
-  beforeEach(() => {
-    props = {
-      children: "Label"
-    };
-  });
-  afterEach(tearDown);
-
   it("should render `props.children`", () => {
-    const {container} = getComponent();
-    expect(getByText(container, props.children)).toBeInTheDocument();
+    const {getByText} = render(<Button children="Label"/>)
+    expect(getByText('Label')).toBeInTheDocument();
   });
 
   describe("when `props.plus` is `true`", () => {
-    beforeEach(() => {
-      props.plus = true;
-    });
-
     it("should render a plus character", () => {
-      const {container} = getComponent();
-      expect(getByText(container, `+ ${props.children}`)).toBeInTheDocument();
+      const {getByText} = render(<Button children="Label" plus/>)
+      expect(getByText(`+ ${props.children}`)).toBeInTheDocument();
     });
   });
 });
