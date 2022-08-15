@@ -168,6 +168,7 @@ These are the core dependencies you'll need to get acquainted yourself with:
 - [Redux Toolkit](https://redux-toolkit.js.org/) (handles state management)
 - [redux-saga](https://redux-saga.js.org) (handles side-effects in Redux, such as API calls)
 - [React Router](https://reacttraining.com/react-router) (route management)
+- [Redux-first-history](https://github.com/salvoravida/redux-first-history) (redux binding for React Router)
 - [Chakra](https://chakra-ui.com) (component library our UI is built upon)
 - [Formik](https://jaredpalmer.com/formik/docs/api/formik#validationschema-schema-gt-schema) (to make it easier to write forms with React)
 - [Yup](https://github.com/jquense/yup) (handles form validation)
