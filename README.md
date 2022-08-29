@@ -190,7 +190,17 @@ To deploy don't forget to change the environment variables for production. Then 
 $ npm run build
 ```
 
-It will create a `dist` folder in the root with the code bundled and minified. Then you have to serve the `index.html` file located in the `dist` folder. To do this you have some packages like [http-server](https://github.com/http-party/http-server) or [servor](https://github.com/lukejacksonn/servor). If you need something more custom, you can create your own server using [express](https://expressjs.com/) or another web framework.
+It will create a `dist` folder in the root with the code bundled and minified. Then you have to serve the `index.html` file located in the `dist` folder running the following command in the `dist` folder:
+
+```sh
+$ node server.js PORT
+```
+
+If you use `pm2` you should run this command
+
+```sh
+$ pm2 start server.js  -- PORT --name <app-name>
+```
 
 ## Tests 
 
