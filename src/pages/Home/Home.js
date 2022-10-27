@@ -1,19 +1,18 @@
-import {
-  Button, Container, Flex, Text, VStack
-} from '@chakra-ui/react';
 import PropTypes from 'prop-types';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 
 function Home({onClick}) {
   return (
-    <Container maxW="container.xl" p={0}>
-      <Flex h="100vh" py="20">
-        <VStack w="full" h="full" p={10} spacing={10} bg="gray.50">
-          <Text fontSize="3xl">Welcome to React Seed</Text>
-          <Button onClick={onClick} data-testid="redirect-button">
-            Go to login page
-          </Button>
-        </VStack>
-      </Flex>
+    <Container maxWidth="md">
+      <Stack direction="column" alignItems="center" spacing={10}>
+        <Typography fontSize="3xl">Welcome to React Seed</Typography>
+        <Button variant="contained" onClick={onClick} data-testid="redirect-button">
+          Go to login page
+        </Button>
+      </Stack>
     </Container>
   );
 }

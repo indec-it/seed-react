@@ -2,7 +2,8 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
+    'jest/globals': true
   },
   extends: [
     'airbnb',
@@ -22,8 +23,12 @@ module.exports = {
     'react',
     'jest'
   ],
-  env: {
-    'jest/globals': true
+  globals: {
+    React: true,
+    render: true,
+    configureStore: true,
+    window: true,
+    localStorage: true
   },
   rules: {
     indent: [
@@ -49,6 +54,7 @@ module.exports = {
     'max-len': ['error', 125],
     'react/jsx-filename-extension': [1, {extensions: ['.js', '.jsx']}],
     'no-param-reassign': ['error', {props: true, ignorePropertyModificationsFor: ['state']}],
-    'arrow-parens': 'off'
+    'arrow-parens': 'off',
+    'no-underscore-dangle': 'off'
   }
 };

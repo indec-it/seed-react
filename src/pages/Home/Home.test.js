@@ -1,27 +1,34 @@
-import {fireEvent, render} from '@testing-library/react';
+import {fireEvent, getByTestId, getByText} from '@testing-library/react';
 
 import Home from './Home';
 
 describe('<Home>', () => {
+  let props;
+  const getComponent = () => render(Home, props);
+  beforeEach(() => {
+    props = {
+      onClick: jest.fn()
+    };
+  });
+
   it('should display `Welcome to React Seed`', () => {
-    const {getByText} = render(<Home onClick={jest.fn()} />);
-    expect(getByText('Welcome to React Seed')).toBeInTheDocument();
+    const {container} = getComponent();
+    expect(getByText(container, 'Welcome to React Seed')).toBeInTheDocument();
   });
 
   it('should render a button with `Go to login page`', () => {
-    const {getByText} = render(<Home onClick={jest.fn()} />);
-    expect(getByText('Go to login page')).toBeInTheDocument();
+    const {container} = getComponent();
+    expect(getByText(container, 'Go to login page')).toBeInTheDocument();
   });
 
   describe('when the button is pressed', () => {
-    const click = jest.fn();
     beforeEach(() => {
-      const {getByTestId} = render(<Home onClick={click} />);
-      fireEvent.click(getByTestId('redirect-button'));
+      const {container} = getComponent();
+      fireEvent.click(getByTestId(container, 'redirect-button'));
     });
 
-    it('should call the onClick callback', () => {
-      expect(click).toHaveBeenCalled();
+    it('should fire `props.onClick`', () => {
+      expect(props.onClick).toHaveBeenCalled();
     });
   });
 });
