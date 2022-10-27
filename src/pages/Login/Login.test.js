@@ -1,39 +1,55 @@
-import {render, within} from '@testing-library/react';
+import {
+  getByTestId, getByPlaceholderText, getByText
+} from '@testing-library/react';
 
 import Login from './Login';
 
 describe('<Login>', () => {
+  let props;
+  const getComponent = () => render(Login, props);
+  beforeEach(() => {
+    props = {
+      login: jest.fn(),
+      isLoggingIn: false,
+      hasError: false
+    };
+  });
+
   it('should display `Login`', () => {
-    const {getByTestId} = render(<Login login={jest.fn()} isLoggingIn={false} hasError={false} />);
-    const {getByText} = within(getByTestId('title'));
-    expect(getByText('Login')).toBeInTheDocument();
+    const {container} = getComponent();
+    const loginTitle = getByTestId(container, 'title');
+    expect(getByText(loginTitle, 'Login')).toBeInTheDocument();
   });
 
   it('should render a button with `Login` text', () => {
-    const {getByTestId} = render(<Login login={jest.fn()} isLoggingIn={false} hasError={false} />);
-    const {getByText} = within(getByTestId('login-button'));
-    expect(getByText('Login')).toBeInTheDocument();
+    const {container} = getComponent();
+    const button = getByTestId(container, 'login-button');
+    expect(getByText(button, 'Login')).toBeInTheDocument();
   });
 
   it('should display `Username` as placeholder', () => {
-    const {getByPlaceholderText} = render(<Login login={jest.fn()} isLoggingIn={false} hasError={false} />);
-    expect(getByPlaceholderText('Username')).toBeInTheDocument();
+    const {container} = getComponent();
+    expect(getByPlaceholderText(container, 'Username')).toBeInTheDocument();
   });
 
   it('should display `Password` as placeholder', () => {
-    const {getByPlaceholderText} = render(<Login login={jest.fn()} isLoggingIn={false} hasError={false} />);
-    expect(getByPlaceholderText('Password')).toBeInTheDocument();
+    const {container} = getComponent();
+    expect(getByPlaceholderText(container, 'Password')).toBeInTheDocument();
   });
 
   it('should be disabled login button if there is not username or password', () => {
-    const {getByTestId} = render(<Login login={jest.fn()} isLoggingIn={false} hasError={false} />);
-    expect(getByTestId('login-button')).toBeDisabled();
+    const {container} = getComponent();
+    expect(getByTestId(container, 'login-button')).toBeDisabled();
   });
 
   describe('when `props.hasError` is `true`', () => {
+    beforeEach(() => {
+      props.hasError = true;
+    });
+
     it('should display `Login failed`', () => {
-      const {getByText} = render(<Login login={jest.fn()} isLoggingIn={false} hasError />);
-      expect(getByText('Login failed')).toBeInTheDocument();
+      const {container} = getComponent();
+      expect(getByText(container, 'Login failed')).toBeInTheDocument();
     });
   });
 });

@@ -1,18 +1,21 @@
 import {Provider} from 'react-redux';
-import {ChakraProvider} from '@chakra-ui/react';
 import {HistoryRouter as Router} from 'redux-first-history/rr6';
+import CssBaseline from '@mui/material/CssBaseline';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
 
 import {history, store} from '@app/store';
 import Routes from '@routes';
+import theme from '@styles/theme';
 
 function App() {
   return (
     <Provider store={store}>
-      <ChakraProvider>
-        <Router history={history}>
+      <Router history={history}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
           <Routes />
-        </Router>
-      </ChakraProvider>
+        </ThemeProvider>
+      </Router>
     </Provider>
   );
 }

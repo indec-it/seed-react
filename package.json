@@ -1,27 +1,28 @@
 {
   "name": "seed",
   "version": "1.0.0",
-  "description": "React Seed",
+  "description": "React seed",
   "main": "index.js",
   "scripts": {
-    "build": "webpack && cp server.js dist",
+    "build": "webpack && cp server.js dist && cp .env dist",
     "dev": "webpack serve",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
     "test": "jest --config=jest.config.json",
     "test:watch": "jest --config=jest.config.json --watch",
     "prepare": "husky install",
-    "validate": "npm run lint && npm run test"
+    "validate": "npm run lint && npm run test",
+    "start": "node server.js"
   },
   "keywords": [
-    "seed",
     "INDEC",
     "react",
     "redux",
     "webpack",
     "node",
-    "chakra",
-    "jest"
+    "material",
+    "jest",
+    "seed"
   ],
   "author": "INDEC-it",
   "license": "ISC",
@@ -52,27 +53,29 @@
     "jest-environment-jsdom": "^28.1.3",
     "jest-watch-typeahead": "^2.0.0",
     "react-refresh": "^0.14.0",
+    "redux-mock-store": "^1.5.4",
     "style-loader": "^3.3.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.10.0"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.2.6",
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/icons-material": "^5.10.6",
+    "@mui/material": "^5.10.7",
     "@reduxjs/toolkit": "^1.8.4",
     "dotenv": "^16.0.1",
-    "express": "^4.18.1",
+    "formik": "^2.2.9",
     "framer-motion": "^7.1.0",
     "history": "^5.3.0",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.4.0",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "redux-first-history": "^5.0.12",
-    "redux-saga": "^1.1.3"
+    "redux-saga": "^1.1.3",
+    "yup": "^0.32.11"
   }
 }

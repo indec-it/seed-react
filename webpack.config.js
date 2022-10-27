@@ -48,7 +48,7 @@ const plugins = [
 ];
 
 const buildAlias = () => {
-  const alias = {};
+  const alias = {'@root': __dirname};
   const directories = fs.readdirSync(path.resolve(__dirname, 'src'));
   directories.forEach(dir => {
     const directory = path.resolve(__dirname, 'src', dir);
