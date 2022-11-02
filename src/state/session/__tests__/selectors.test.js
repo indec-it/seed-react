@@ -1,33 +1,36 @@
 import * as selectors from '../selectors';
 
 describe('hasError', () => {
-  describe('when `state.session.hasError` is `true`', () => {
-    it('should return `true``', () => {
-      const state = {session: {hasError: true}};
-      expect(selectors.hasError(state)).toBe(true);
-    });
-  });
-
-  describe('when `state.session.hasError` is `false`', () => {
-    it('should return `false``', () => {
-      const state = {session: {hasError: false}};
-      expect(selectors.hasError(state)).toBe(false);
-    });
+  it('should return `state.session.hasError` value', () => {
+    const state = {session: {hasError: true}};
+    expect(selectors.hasError(state)).toBe(true);
   });
 });
 
 describe('isLoggingIn', () => {
-  describe('when `state.session.isLoggingIn` is `true`', () => {
-    it('should return `true``', () => {
-      const state = {session: {isLoggingIn: true}};
-      expect(selectors.isLoggingIn(state)).toBe(true);
-    });
+  it('should return `state.session.isLoggingIn` value', () => {
+    const state = {session: {isLoggingIn: false}};
+    expect(selectors.isLoggingIn(state)).toBe(false);
   });
+});
 
-  describe('when `state.session.isLoggingIn` is `false`', () => {
-    it('should return `false``', () => {
-      const state = {session: {isLoggingIn: false}};
-      expect(selectors.isLoggingIn(state)).toBe(false);
-    });
+describe('getValidatingSession', () => {
+  it('should return `state.session.validatingSession` value', () => {
+    const state = {session: {validatingSession: false}};
+    expect(selectors.getValidatingSession(state)).toBe(false);
+  });
+});
+
+describe('getUserLogged', () => {
+  it('should return `state.session.user` value', () => {
+    const state = {session: {user: {id: 1}}};
+    expect(selectors.getUserLogged(state)).toEqual({id: 1});
+  });
+});
+
+describe('getToken', () => {
+  it('should return `state.session.token` value', () => {
+    const state = {session: {token: '123'}};
+    expect(selectors.getToken(state)).toBe('123');
   });
 });

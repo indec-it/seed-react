@@ -1,4 +1,4 @@
 import http from './http';
+import tokenService from './token';
 
-// eslint-disable-next-line
-export {http};
+export {http, tokenService};

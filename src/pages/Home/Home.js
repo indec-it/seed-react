@@ -4,13 +4,13 @@ import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-function Home({onClick}) {
+function Home({logout}) {
   return (
     <Container maxWidth="md">
       <Stack direction="column" alignItems="center" spacing={10}>
         <Typography fontSize="3xl">Welcome to React Seed</Typography>
-        <Button variant="contained" onClick={onClick} data-testid="redirect-button">
-          Go to login page
+        <Button variant="contained" onClick={logout} data-testid="close-session-button">
+          Cerrar sesion
         </Button>
       </Stack>
     </Container>
@@ -18,7 +18,7 @@ function Home({onClick}) {
 }
 
 Home.propTypes = {
-  onClick: PropTypes.func.isRequired
+  logout: PropTypes.func.isRequired
 };
 
 export default Home;
