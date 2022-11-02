@@ -7,6 +7,8 @@ import {reducers, rootSaga} from '@state';
 
 const saga = createSagaMiddleware();
 
+const {NODE_ENV} = process.env;
+
 const {
   createReduxHistory,
   routerMiddleware,
@@ -18,7 +20,8 @@ export const store = configureStore({
     router: routerReducer,
     ...reducers
   },
-  middleware: [saga, routerMiddleware]
+  middleware: [saga, routerMiddleware],
+  devTools: NODE_ENV === 'development'
 });
 
 export const history = createReduxHistory(store);

@@ -1,9 +1,22 @@
-import reducer, {loginFailure, loginRequest, loginSuccess} from '../sessionSlice';
+import reducer, {
+  loginRequest,
+  loginSuccess,
+  loginFailure,
+  validateSessionRequest,
+  validateSessionSuccess,
+  validateSessionFailure,
+  logoutRequest,
+  logoutSuccess,
+  logoutFailure
+} from '../sessionSlice';
 
 const initialState = {
   isLoggingIn: false,
   token: null,
-  hasError: false
+  hasError: false,
+  user: null,
+  validatingSession: false,
+  closingSession: false
 };
 
 it('should return the initial state', () => {
@@ -11,31 +24,63 @@ it('should return the initial state', () => {
 });
 
 it('should handle loginRequest', () => {
-  expect(reducer(initialState, loginRequest())).toEqual(
-    {
-      isLoggingIn: true,
-      token: null,
-      hasError: false
-    }
-  );
+  expect(reducer({}, loginRequest())).toEqual({isLoggingIn: true, hasError: false});
 });
 
 it('should handle loginSuccess', () => {
-  expect(reducer({isLoggingIn: true, token: null, hasError: false}, loginSuccess({token: 'token'}))).toEqual(
+  const response = {token: '123', user: {id: '123'}};
+  expect(reducer({isLoggingIn: true}, loginSuccess(response))).toEqual(
     {
       isLoggingIn: false,
-      token: 'token',
+      token: response.token,
+      user: response.user,
       hasError: false
     }
   );
 });
 
 it('should handle loginFailure', () => {
-  expect(reducer({isLoggingIn: true, token: null, hasError: false}, loginFailure())).toEqual(
+  expect(reducer({isLoggingIn: true}, loginFailure())).toEqual(
     {
       isLoggingIn: false,
       token: null,
+      user: null,
       hasError: true
     }
   );
+});
+
+it('should handle validateSessionRequest', () => {
+  expect(reducer({}, validateSessionRequest())).toEqual({validatingSession: true});
+});
+
+it('should handle validateSessionSuccess', () => {
+  const response = {token: '123', user: {id: '123'}};
+  expect(reducer({validatingSession: true}, validateSessionSuccess(response))).toEqual({
+    validatingSession: false,
+    user: response.user,
+    token: response.token
+  });
+});
+
+it('should handle validateSessionFailure', () => {
+  expect(reducer({validatingSession: true}, validateSessionFailure())).toEqual({
+    validatingSession: false,
+    user: null,
+    token: null
+  });
+});
+
+it('should handle logoutRequest', () => {
+  expect(reducer({}, logoutRequest())).toEqual({closingSession: true});
+});
+
+it('should handle logoutSuccess', () => {
+  expect(reducer({closingSession: true, token: '123', user: {id: '123'}}, logoutSuccess())).toEqual({
+    closingSession: false, token: null, user: null
+  });
+});
+
+it('should handle logoutFailure', () => {
+  expect(reducer({closingSession: true}, logoutFailure())).toEqual({closingSession: false});
 });

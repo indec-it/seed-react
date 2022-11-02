@@ -7,7 +7,7 @@ describe('<Home>', () => {
   const getComponent = () => render(Home, props);
   beforeEach(() => {
     props = {
-      onClick: jest.fn()
+      logout: jest.fn()
     };
   });
 
@@ -16,19 +16,19 @@ describe('<Home>', () => {
     expect(getByText(container, 'Welcome to React Seed')).toBeInTheDocument();
   });
 
-  it('should render a button with `Go to login page`', () => {
+  it('should render a button with `Cerrar sesion`', () => {
     const {container} = getComponent();
-    expect(getByText(container, 'Go to login page')).toBeInTheDocument();
+    expect(getByText(container, 'Cerrar sesion')).toBeInTheDocument();
   });
 
   describe('when the button is pressed', () => {
     beforeEach(() => {
       const {container} = getComponent();
-      fireEvent.click(getByTestId(container, 'redirect-button'));
+      fireEvent.click(getByTestId(container, 'close-session-button'));
     });
 
-    it('should fire `props.onClick`', () => {
-      expect(props.onClick).toHaveBeenCalled();
+    it('should fire `props.logout`', () => {
+      expect(props.logout).toHaveBeenCalled();
     });
   });
 });

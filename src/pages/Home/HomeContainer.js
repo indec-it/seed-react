@@ -1,12 +1,11 @@
 import {connect} from 'react-redux';
-import {push} from 'redux-first-history';
 
-import {routes} from '@constants';
+import {logoutRequest} from '@state/session/sessionSlice';
 
 import Home from './Home';
 
 const mapDispatchToProps = dispatch => ({
-  onClick: () => dispatch(push(routes.LOGIN))
+  logout: () => dispatch(logoutRequest())
 });
 
 const HomeContainer = connect(null, mapDispatchToProps)(Home);

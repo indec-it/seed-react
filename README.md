@@ -46,7 +46,7 @@ src/
   routes/
   services/
   state/
-  theme/
+  styles/
   utils/
 ```
 
@@ -193,13 +193,13 @@ $ npm run build
 It will create a `dist` folder in the root with the code bundled and minified. Then you have to serve the `index.html` file located in the `dist` folder running the following command in the `dist` folder:
 
 ```sh
-$ node server.js PORT
+$ node server.js
 ```
 
 If you use `pm2` you should run this command
 
 ```sh
-$ pm2 start server.js  -- PORT --name <app-name>
+$ pm2 start server.js --name <app-name>
 ```
 
 ## Tests 
