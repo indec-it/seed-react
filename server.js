@@ -37,6 +37,7 @@ app.use(express.static(__dirname));
 app.use(express.json({}));
 app.use(express.urlencoded({extended: true}));
 
+app.get('/status', handleRequest);
 app.post('/public-api/login', handleRequest);
 app.post('/public-api/session', handleRequest);
 
