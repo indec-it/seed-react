@@ -48,6 +48,7 @@ module.exports = {
       'always'
     ],
     'react/react-in-jsx-scope': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'object-curly-spacing': ['error', 'never'],
     'eol-last': ['error'],
     'comma-dangle': ['error', 'never'],

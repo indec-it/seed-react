@@ -1,5 +1,5 @@
 import {
-  getByTestId, getByPlaceholderText, getByText
+  getByTestId, getByPlaceholderText, getByText, queryByText
 } from '@testing-library/react';
 
 import Login from './Login';
@@ -50,6 +50,17 @@ describe('<Login>', () => {
     it('should display `Login failed`', () => {
       const {container} = getComponent();
       expect(getByText(container, 'Login failed')).toBeInTheDocument();
+    });
+  });
+
+  describe('when `props.hasError` is `false`', () => {
+    beforeEach(() => {
+      props.hasError = false;
+    });
+
+    it('should not display `Login failed`', () => {
+      const {container} = getComponent();
+      expect(queryByText(container, 'Login failed')).toBeNull();
     });
   });
 });
