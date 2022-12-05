@@ -1,9 +1,12 @@
 # Seed React BackOffice 🚀
 
-## Glossary
+## Table of Contents
 
 1. [Set up](#setup)
 1. [Structure](#structure)
+1. [Routes](#routes)
+    * App routes [3.1](#routes--app)
+    * Api routes [3.2](#routes--api)
 1. [Dependencies](#dependencies)
 1. [Deployment](#deployment)
 1. [Tests](#tests)
@@ -160,6 +163,18 @@ Custom theme for components and application.
 
 Functions to be shared for the whole application.
 
+## Routes
+
+<a name="routes--app"></a><a name="3.1"></a>
+- [3.1](#routes--app) **App routes usage**
+
+To create a new application route, you have to add your new route into `src/routes` folder, if the new route is when the user is not logged, you have to add the route into `offline` file; otherwise you have to add the route into `online` file. Don't forget to add the route into `src/constants/routes` to make future changes easier.
+
+<a name="routes--api"></a><a name="3.1"></a>
+- [3.2](#routes--api) **Api routes usage**
+
+To make a request to the API you must do this from `sagas`. In `development` mode you have to add your route in `src/constants/apiRoutes.js` file, but for `production` we don't expose the backend url, so you need to add the API route in `server.js` file.
+
 ## Dependencies
 
 These are the core dependencies you'll need to get acquainted yourself with:
@@ -169,7 +184,7 @@ These are the core dependencies you'll need to get acquainted yourself with:
 - [redux-saga](https://redux-saga.js.org) (handles side-effects in Redux, such as API calls)
 - [React Router](https://reacttraining.com/react-router) (route management)
 - [Redux-first-history](https://github.com/salvoravida/redux-first-history) (redux binding for React Router)
-- [Chakra](https://chakra-ui.com) (component library our UI is built upon)
+- [Material ui](https://mui.com/) (component library our UI is built upon)
 - [Formik](https://jaredpalmer.com/formik/docs/api/formik#validationschema-schema-gt-schema) (to make it easier to write forms with React)
 - [Yup](https://github.com/jquense/yup) (handles form validation)
 - [Storybook](https://storybook.js.org) (component library)
