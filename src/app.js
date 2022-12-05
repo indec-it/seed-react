@@ -5,6 +5,7 @@ import ThemeProvider from '@mui/material/styles/ThemeProvider';
 
 import {history, store} from '@app/store';
 import Routes from '@routes';
+import Snackbar from '@components/Snackbar';
 import theme from '@styles/theme';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Router history={history}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
+          <Snackbar />
           <Routes />
         </ThemeProvider>
       </Router>
