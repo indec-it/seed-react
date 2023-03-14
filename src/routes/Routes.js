@@ -4,7 +4,7 @@ import {useLocation, useRoutes} from 'react-router-dom';
 import Container from '@mui/material/Container';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import appStatuses from '@constants/appStatuses';
+import appStatuses from '@/constants/appStatuses';
 
 import offlineRoutes from './offline';
 import onlineRoutes from './online';

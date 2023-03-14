@@ -8,7 +8,7 @@ import configureStore from 'redux-mock-store';
 import {MemoryRouter} from 'react-router-dom';
 import {Formik} from 'formik';
 
-import theme from '@styles/theme';
+import theme from '@/styles/theme';
 
 global.React = React;
 global.configureStore = configureStore;

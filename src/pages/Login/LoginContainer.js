@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 
-import {loginRequest} from '@state/session/sessionSlice';
-import {hasError, isLoggingIn} from '@state/session/selectors';
+import {loginRequest} from '@/state/session/sessionSlice';
+import {hasError, isLoggingIn} from '@/state/session/selectors';
 
 import Login from './Login';
 

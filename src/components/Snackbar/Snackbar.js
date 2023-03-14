@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Alert from '@mui/material/Alert';
 import MuiSnackbar from '@mui/material/Snackbar';
 
-import severityMessages from '@constants/severityMessages';
+import severityMessages from '@/constants/severityMessages';
 
 function Snackbar({
   open, message, close, severity

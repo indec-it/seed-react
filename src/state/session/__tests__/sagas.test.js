@@ -1,8 +1,8 @@
 import {call, put} from 'redux-saga/effects';
 import {push} from 'redux-first-history';
 
-import {apiRoutes, routes} from '@constants';
-import {http, tokenService} from '@services';
+import {apiRoutes, routes} from '@/constants';
+import {http, tokenService} from '@/services';
 import {
   loginRequest,
   loginSuccess,
@@ -12,8 +12,8 @@ import {
   validateSessionSuccess,
   logoutSuccess,
   logoutFailure
-} from '@state/session/sessionSlice';
-import * as sagas from '@state/session/sagas';
+} from '@/state/session/sessionSlice';
+import * as sagas from '@/state/session/sagas';
 
 describe('login', () => {
   it('handles successful attempts', () => {
