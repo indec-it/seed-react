@@ -229,19 +229,28 @@ $ npm run test:watch # Run in watch mode
 When writing tests, make sure to use the following format to keep the tests clean and consistent:
 
 ```jsx
-import {render} from "@testing-library/react";
+import {getByText} from "@testing-library/react";
 
 import Button from "./Button";
 
 describe("<Button>", () => {
+  let props;
+  const getComponent = () => render(Button, props);
+  beforeEach(() => {
+    props.children = "Label";
+  })
+
   it("should render `props.children`", () => {
-    const {getByText} = render(<Button children="Label"/>)
-    expect(getByText('Label')).toBeInTheDocument();
+    const {container} = getComponent();
+    expect(getByText(container, props.children)).toBeInTheDocument();
   });
 
   describe("when `props.plus` is `true`", () => {
+    beforeEach(() => {
+      props.plus = true;
+    })
     it("should render a plus character", () => {
-      const {getByText} = render(<Button children="Label" plus/>)
+      const {container} = getComponent();
       expect(getByText(`+ ${props.children}`)).toBeInTheDocument();
     });
   });

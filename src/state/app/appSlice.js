@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-import appStatuses from '@constants/appStatuses';
-import severityMessages from '@constants/severityMessages';
+import appStatuses from '@/constants/appStatuses';
+import severityMessages from '@/constants/severityMessages';
 
 const initialState = {
   gettingStatus: false,

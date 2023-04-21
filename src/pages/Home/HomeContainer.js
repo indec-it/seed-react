@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import {logoutRequest} from '@state/session/sessionSlice';
+import {logoutRequest} from '@/state/session/sessionSlice';
 
 import Home from './Home';
 

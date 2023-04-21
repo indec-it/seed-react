@@ -1,8 +1,8 @@
 import {call, takeLatest, put} from 'redux-saga/effects';
 import {push} from 'redux-first-history';
 
-import {apiRoutes, routes} from '@constants';
-import {http, tokenService} from '@services';
+import {apiRoutes, routes} from '@/constants';
+import {http, tokenService} from '@/services';
 
 import {
   loginRequest,

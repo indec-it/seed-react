@@ -11,7 +11,17 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:jest/recommended'
   ],
-  settings: {'import/resolver': {webpack: {config: 'webpack.config.js'}}},
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [
+          ['@', './src/'],
+          ['@root', '.']
+        ],
+        extensions: ['.js']
+      }
+    }
+  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true

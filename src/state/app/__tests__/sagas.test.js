@@ -1,11 +1,11 @@
 import {call, put} from 'redux-saga/effects';
 
-import {apiRoutes} from '@constants';
-import {http} from '@services';
+import {apiRoutes} from '@/constants';
+import {http} from '@/services';
 import {
   getAppStatusFailure, getAppStatusSuccess, setSnackbar
-} from '@state/app/appSlice';
-import * as sagas from '@state/app/sagas';
+} from '@/state/app/appSlice';
+import * as sagas from '@/state/app/sagas';
 
 describe('getAppStatus', () => {
   it('handles successful attempts', () => {

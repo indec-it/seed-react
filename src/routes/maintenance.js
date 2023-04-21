@@ -1,8 +1,8 @@
 import {lazy} from 'react';
 
-import Loader from '@components/Loader';
+import Loader from '@/components/Loader';
 
-const Maintenance = Loader(lazy(() => import('@pages/Maintenance')));
+const Maintenance = Loader(lazy(() => import('@/pages/Maintenance')));
 
 const maintenanceRoutes = [
   {

@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
 
-import {getAppStatusRequest} from '@state/app/appSlice';
-import {getAppStatus} from '@state/app/selectors';
-import {validateSessionRequest} from '@state/session/sessionSlice';
-import {getToken, getUserLogged, getValidatingSession} from '@state/session/selectors';
+import {getAppStatusRequest} from '@/state/app/appSlice';
+import {getAppStatus} from '@/state/app/selectors';
+import {validateSessionRequest} from '@/state/session/sessionSlice';
+import {getToken, getUserLogged, getValidatingSession} from '@/state/session/selectors';
 
 import Routes from './Routes';
 

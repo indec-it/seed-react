@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
 
-import {setSnackbar} from '@state/app/appSlice';
-import {getSnackbarMessage, getSnackbarOpen, getSnackbarSeverity} from '@state/app/selectors';
-import severityMessages from '@constants/severityMessages';
+import {setSnackbar} from '@/state/app/appSlice';
+import {getSnackbarMessage, getSnackbarOpen, getSnackbarSeverity} from '@/state/app/selectors';
+import severityMessages from '@/constants/severityMessages';
 
 import Snackbar from './Snackbar';
 

@@ -53,7 +53,7 @@ const buildAlias = () => {
   directories.forEach(dir => {
     const directory = path.resolve(__dirname, 'src', dir);
     if (fs.statSync(directory).isDirectory()) {
-      alias[`@${dir}`] = directory;
+      alias[`@/${dir}`] = directory;
     }
   });
   return alias;
@@ -69,7 +69,8 @@ module.exports = () => {
     output: {
       filename: isProduction ? '[name].[contenthash].js' : '[name].js',
       path: path.resolve(__dirname, 'dist'),
-      clean: true
+      clean: true,
+      publicPath: '/'
     },
     plugins,
     resolve: {

@@ -1,8 +1,8 @@
 import {lazy} from 'react';
 
-import Loader from '@components/Loader';
+import Loader from '@/components/Loader';
 
-const Login = Loader(lazy(() => import('@pages/Login')));
+const Login = Loader(lazy(() => import('@/pages/Login')));
 
 const offlineRoutes = [
   {
