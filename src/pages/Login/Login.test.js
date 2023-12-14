@@ -1,6 +1,4 @@
-import {
-  getByTestId, getByPlaceholderText, getByText, queryByText
-} from '@testing-library/react';
+import {getByTestId, getByPlaceholderText, getByText, queryByText} from '@testing-library/react';
 
 import Login from './Login';
 

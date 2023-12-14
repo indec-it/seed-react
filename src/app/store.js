@@ -9,11 +9,7 @@ const saga = createSagaMiddleware();
 
 const {NODE_ENV} = process.env;
 
-const {
-  createReduxHistory,
-  routerMiddleware,
-  routerReducer
-} = createReduxHistoryContext({history: createBrowserHistory()});
+const {createReduxHistory, routerMiddleware, routerReducer} = createReduxHistoryContext({history: createBrowserHistory()});
 
 export const store = configureStore({
   reducer: {

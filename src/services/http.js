@@ -19,11 +19,12 @@ const getHeaders = () => {
   return headers;
 };
 
-const saveData = (url, data, method) => fetch(`${getBaseUrl()}${url}`, {
-  method,
-  headers: getHeaders(),
-  body: JSON.stringify(data)
-});
+const saveData = (url, data, method) =>
+  fetch(`${getBaseUrl()}${url}`, {
+    method,
+    headers: getHeaders(),
+    body: JSON.stringify(data)
+  });
 
 const handleResponse = response => {
   if (response.status >= 200 && response.status < 300) {
