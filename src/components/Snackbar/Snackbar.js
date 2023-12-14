@@ -4,9 +4,7 @@ import MuiSnackbar from '@mui/material/Snackbar';
 
 import severityMessages from '@/constants/severityMessages';
 
-function Snackbar({
-  open, message, close, severity
-}) {
+function Snackbar({open, message, close, severity}) {
   return (
     <MuiSnackbar open={open} autoHideDuration={6000} onClose={close}>
       <Alert onClose={close} severity={severity} sx={{width: '100%'}}>

@@ -1,13 +1,9 @@
 import {call, takeLatest, put} from 'redux-saga/effects';
 
-import {
-  apiRoutes, errorMessages, severityMessages
-} from '@/constants';
+import {apiRoutes, errorMessages, severityMessages} from '@/constants';
 import {http} from '@/services';
 
-import {
-  getAppStatusFailure, getAppStatusRequest, getAppStatusSuccess, setSnackbar
-} from './appSlice';
+import {getAppStatusFailure, getAppStatusRequest, getAppStatusSuccess, setSnackbar} from './appSlice';
 
 export function* getAppStatus() {
   try {

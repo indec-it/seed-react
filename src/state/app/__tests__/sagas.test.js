@@ -2,9 +2,7 @@ import {call, put} from 'redux-saga/effects';
 
 import {apiRoutes} from '@/constants';
 import {http} from '@/services';
-import {
-  getAppStatusFailure, getAppStatusSuccess, setSnackbar
-} from '@/state/app/appSlice';
+import {getAppStatusFailure, getAppStatusSuccess, setSnackbar} from '@/state/app/appSlice';
 import * as sagas from '@/state/app/sagas';
 
 describe('getAppStatus', () => {

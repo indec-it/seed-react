@@ -10,9 +10,7 @@ import offlineRoutes from './offline';
 import onlineRoutes from './online';
 import maintenanceRoutes from './maintenance';
 
-function Routes({
-  validateToken, validatingSession, user, token, getAppStatus, appStatus
-}) {
+function Routes({validateToken, validatingSession, user, token, getAppStatus, appStatus}) {
   const location = useLocation();
   useEffect(() => {
     getAppStatus();

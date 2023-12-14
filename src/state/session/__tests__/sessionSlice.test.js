@@ -29,25 +29,21 @@ it('should handle loginRequest', () => {
 
 it('should handle loginSuccess', () => {
   const response = {token: '123', user: {id: '123'}};
-  expect(reducer({isLoggingIn: true}, loginSuccess(response))).toEqual(
-    {
-      isLoggingIn: false,
-      token: response.token,
-      user: response.user,
-      hasError: false
-    }
-  );
+  expect(reducer({isLoggingIn: true}, loginSuccess(response))).toEqual({
+    isLoggingIn: false,
+    token: response.token,
+    user: response.user,
+    hasError: false
+  });
 });
 
 it('should handle loginFailure', () => {
-  expect(reducer({isLoggingIn: true}, loginFailure())).toEqual(
-    {
-      isLoggingIn: false,
-      token: null,
-      user: null,
-      hasError: true
-    }
-  );
+  expect(reducer({isLoggingIn: true}, loginFailure())).toEqual({
+    isLoggingIn: false,
+    token: null,
+    user: null,
+    hasError: true
+  });
 });
 
 it('should handle validateSessionRequest', () => {
@@ -77,7 +73,9 @@ it('should handle logoutRequest', () => {
 
 it('should handle logoutSuccess', () => {
   expect(reducer({closingSession: true, token: '123', user: {id: '123'}}, logoutSuccess())).toEqual({
-    closingSession: false, token: null, user: null
+    closingSession: false,
+    token: null,
+    user: null
   });
 });
 

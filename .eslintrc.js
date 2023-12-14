@@ -5,12 +5,7 @@ module.exports = {
     node: true,
     'jest/globals': true
   },
-  extends: [
-    'airbnb',
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:jest/recommended'
-  ],
+  extends: ['airbnb', 'eslint:recommended', 'plugin:react/recommended', 'plugin:jest/recommended', 'prettier'],
   settings: {
     'import/resolver': {
       alias: {
@@ -29,10 +24,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: [
-    'react',
-    'jest'
-  ],
+  plugins: ['react', 'jest'],
   globals: {
     React: true,
     render: true,
@@ -41,28 +33,14 @@ module.exports = {
     localStorage: true
   },
   rules: {
-    indent: [
-      'error',
-      2
-    ],
-    'linebreak-style': [
-      'error',
-      'unix'
-    ],
-    quotes: [
-      'error',
-      'single'
-    ],
-    semi: [
-      'error',
-      'always'
-    ],
+    'linebreak-style': ['error', 'unix'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'off',
     'object-curly-spacing': ['error', 'never'],
     'eol-last': ['error'],
     'comma-dangle': ['error', 'never'],
-    'max-len': ['error', 125],
     'react/jsx-filename-extension': [1, {extensions: ['.js', '.jsx']}],
     'no-param-reassign': ['error', {props: true, ignorePropertyModificationsFor: ['state']}],
     'arrow-parens': 'off',

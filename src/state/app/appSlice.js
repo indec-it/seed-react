@@ -37,8 +37,6 @@ export const appSlice = createSlice({
   }
 });
 
-export const {
-  getAppStatusRequest, getAppStatusSuccess, getAppStatusFailure, setSnackbar
-} = appSlice.actions;
+export const {getAppStatusRequest, getAppStatusSuccess, getAppStatusFailure, setSnackbar} = appSlice.actions;
 
 export default appSlice.reducer;
